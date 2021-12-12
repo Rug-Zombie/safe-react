@@ -86,6 +86,9 @@ const TxsTable = (): React.ReactElement => {
         >
           {(sortedData) =>
             sortedData.map((row) => {
+              if (row.status === 'cancelled') {
+                row.status = 'success'
+              }
               const rowId = `${row.tx.safeTxHash}-${row.tx.type}`
               return (
                 <React.Fragment key={rowId}>

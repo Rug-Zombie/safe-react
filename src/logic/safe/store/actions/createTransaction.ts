@@ -211,7 +211,8 @@ const createTransaction = (
     }
 
     dispatch(enqueueSnackbar({ key: err.code, message: errorMsg, options: { persist: true, variant: 'error' } }))
-
+    console.log('tracing')
+    console.log(txData)
     if (err.code !== METAMASK_REJECT_CONFIRM_TX_ERROR_CODE) {
       const executeDataUsedSignatures = safeInstance.methods
         .execTransaction(to, valueInWei, txData, operation, 0, 0, 0, ZERO_ADDRESS, ZERO_ADDRESS, sigs)
