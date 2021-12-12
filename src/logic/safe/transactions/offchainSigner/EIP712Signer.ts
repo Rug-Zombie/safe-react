@@ -83,7 +83,10 @@ export const getEIP712Signer = (version?: string) => async (txArgs) => {
   return new Promise((resolve, reject) => {
     const provider = web3.currentProvider as AbstractProvider
     provider.sendAsync(signedTypedData, (err, signature) => {
+      console.log(signature)
       if (err) {
+        console.log('error:')
+        console.log(err)
         reject(err)
         return
       }
@@ -93,7 +96,10 @@ export const getEIP712Signer = (version?: string) => async (txArgs) => {
         return
       }
 
-      resolve(signature.result.replace(EMPTY_DATA, ''))
+      console.log('expected resolve:')
+      console.log(signature.result.replace(EMPTY_DATA, ''))
+
+      // resolve(signature.result.replace(EMPTY_DATA, ''))
     })
   })
 }

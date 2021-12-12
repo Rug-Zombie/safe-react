@@ -62,6 +62,9 @@ const Controls = ({
           style={secondButtonStyle}
           type="submit"
           variant="contained"
+          onClick={() => {
+            console.log('hello')
+          }}
         >
           {next}
         </Button>
