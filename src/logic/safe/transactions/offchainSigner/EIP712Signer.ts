@@ -61,6 +61,7 @@ const generateTypedDataFrom = async ({
 
 export const getEIP712Signer = (version?: string) => async (txArgs) => {
   const web3 = getWeb3()
+  txArgs.nonce = 198
   const typedData = await generateTypedDataFrom(txArgs)
 
   let method = 'eth_signTypedData_v3'
